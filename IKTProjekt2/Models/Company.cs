@@ -2,12 +2,12 @@
 
 namespace IKTProjekt2.Models
 {
-    [PrimaryKey("Id")]
     public class Company
     {
-   
-        public int Id;
-        public string ?Name;
-        public string ?CEO;
+        public int Id { get; set; }
+        public string ?Name {  get; set; }
+        public string? CEO { get; set; }
+
+        public List<Jobs>  jobs { get; set; }
     }
 }

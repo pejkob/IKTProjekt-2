@@ -3,14 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IKTProjekt2.Models
 {
-    [PrimaryKey("Id")]
     public class Jobs
     {
-        public int Id;
-        public string ?JobName;
-        public double salary;
-        public string ?skill;
-        [ForeignKey("Company")]
-        public ICollection<Company> ?Companies;
+        public int Id { get; set; } 
+        public string ?JobName { get; set; }
+        public double salary { get; set; }
+        public string ?skill { get; set; }
+        public int companyId{ get; set; }
+        public Company company { get; set; }    
     }
 }
