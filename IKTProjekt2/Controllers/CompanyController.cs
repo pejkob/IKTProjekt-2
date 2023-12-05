@@ -59,7 +59,7 @@ namespace IKTProjekt2.Controllers
             try
             {
                 Company deleteCompany = new(id);
-                context.Companies.Remove(deleteCompany);
+                context.Remove<Company>(deleteCompany);
                 return StatusCode(statusCode: 200, "Sikeres adattörlés!");
             }
             catch (Exception ex)
