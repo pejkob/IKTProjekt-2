@@ -18,13 +18,28 @@ namespace IKTProjekt2.Controllers
             var context=new MainDbContext();
             try
             {
-                return Ok(context.Jobs.ToList());
+                return StatusCode(statusCode:200,context.Jobs.ToList());
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
 
+        }
+        [HttpPost]
+        public ActionResult Post(Jobs newJob)
+        {
+            var context= new MainDbContext();
+            try
+            {
+                context.Add(newJob);
+                context.SaveChanges();
+                return StatusCode(statusCode:201,context.Jobs);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
