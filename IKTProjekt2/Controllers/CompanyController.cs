@@ -23,14 +23,29 @@ namespace IKTProjekt2.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Post(Company company)
+        public ActionResult Post(Company newcompany)
         {
             var context=new MainDbContext();
             try
             {
-                context.Companies.Add(company);
+                context.Companies.Add(newcompany);
                 context.SaveChanges();
                 return StatusCode(statusCode: 201, "Új cég sikeresen hozzáadva!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        public ActionResult Put(Company editcompany)
+        {
+            var context= new MainDbContext();
+            try
+            {
+                context.Companies.Update(editcompany);
+                context.SaveChanges();
+                return StatusCode(statusCode: 204, "Sikeres adatmódosítás");
             }
             catch (Exception ex)
             {
