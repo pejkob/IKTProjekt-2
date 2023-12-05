@@ -41,7 +41,6 @@ namespace IKTProjekt2.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
         
         [HttpPut]
         public ActionResult Put(Jobs editedJob)
@@ -58,7 +57,25 @@ namespace IKTProjekt2.Controllers
                 return BadRequest(ex.Message);
             }
         }
-       
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            var context = new MainDbContext();
+            try
+            {
+                Jobs deleteJob = new(id);
+                context.Remove<Jobs>(deleteJob);
+                context.SaveChanges();
+
+                return StatusCode(statusCode: 200, context.Jobs);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
     }
