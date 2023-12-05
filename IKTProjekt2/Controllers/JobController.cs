@@ -42,6 +42,24 @@ namespace IKTProjekt2.Controllers
             }
         }
 
+        
+        [HttpPut]
+        public ActionResult Put(Jobs editedJob)
+        {
+            var context = new MainDbContext();
+            try
+            {
+                context.Update<Jobs>(editedJob);
+                context.SaveChanges();
+                return StatusCode(statusCode:204, context.Jobs);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+       
+
 
     }
 }
