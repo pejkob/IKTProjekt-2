@@ -8,6 +8,5 @@ namespace IKTProjekt2.Models
         public string ?Name {  get; set; }
         public string? CEO { get; set; }
 
-        public List<Jobs>  jobs { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace IKTProjekt2.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Comnpanies",
+                name: "Companies",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -25,7 +25,7 @@ namespace IKTProjekt2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comnpanies", x => x.Id);
+                    table.PrimaryKey("PK_Companies", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -44,9 +44,9 @@ namespace IKTProjekt2.Migrations
                 {
                     table.PrimaryKey("PK_Jobs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Jobs_Comnpanies_companyId",
+                        name: "FK_Jobs_Companies_companyId",
                         column: x => x.companyId,
-                        principalTable: "Comnpanies",
+                        principalTable: "Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -65,7 +65,7 @@ namespace IKTProjekt2.Migrations
                 name: "Jobs");
 
             migrationBuilder.DropTable(
-                name: "Comnpanies");
+                name: "Companies");
         }
     }
 }

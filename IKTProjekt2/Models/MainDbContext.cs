@@ -9,7 +9,7 @@ public partial class IKTProjekt : DbContext
     public class MainDbContext : DbContext
     {
         public DbSet<Jobs> Jobs { get; set; }
-        public DbSet<Company> Comnpanies { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
