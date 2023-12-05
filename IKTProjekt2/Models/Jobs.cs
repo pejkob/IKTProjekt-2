@@ -10,6 +10,5 @@ namespace IKTProjekt2.Models
         public double salary { get; set; }
         public string ?skill { get; set; }
         public int companyId{ get; set; }
-        public Company company { get; set; }    
     }
 }
