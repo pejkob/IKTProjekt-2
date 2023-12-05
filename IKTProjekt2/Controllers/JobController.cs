@@ -50,7 +50,7 @@ namespace IKTProjekt2.Controllers
             {
                 context.Update<Jobs>(editedJob);
                 context.SaveChanges();
-                return StatusCode(statusCode:204, context.Jobs);
+                return StatusCode(statusCode:204,"Sikeres adatmódosítás");
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace IKTProjekt2.Controllers
                 context.Remove<Jobs>(deleteJob);
                 context.SaveChanges();
 
-                return StatusCode(statusCode: 200, context.Jobs);
+                return StatusCode(statusCode: 200,"A termék sikeresen törölve!");
             }
             catch (Exception ex)
             {
