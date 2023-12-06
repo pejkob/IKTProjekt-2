@@ -52,14 +52,15 @@ namespace IKTProjekt2.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
             var context=new MainDbContext();
             try
             {
                 Company deleteCompany = new(id);
-                context.Remove<Company>(deleteCompany);
+                context.Companies.Remove(deleteCompany);
+                context.SaveChanges();
                 return StatusCode(statusCode: 200, "Sikeres adattörlés!");
             }
             catch (Exception ex)
