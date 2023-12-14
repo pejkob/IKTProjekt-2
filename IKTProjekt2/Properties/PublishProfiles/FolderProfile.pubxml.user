@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\pbálint\Documents\GitHub\IKTProjekt-2\IKTProjekt2\bin\Release\net7.0\publish\</_PublishTargetUrl>
-    <History>True|2023-12-06T09:04:18.5270240Z;</History>
+    <_PublishTargetUrl>C:\Users\User\Documents\GitHub\IKTProjekt-2\IKTProjekt2\bin\Release\net7.0\publish\</_PublishTargetUrl>
+    <History>True|2023-12-14T11:38:00.7209703Z;True|2023-12-06T10:04:18.5270240+01:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

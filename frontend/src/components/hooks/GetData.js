@@ -19,12 +19,7 @@ function GetData() {
         .then(data => JobsetData(data))
     }, [count])
 
-    const Companyurl="http://localhost:5000/Company";
-
-    useEffect(function (){
-        fetch(Companyurl).then(response => response.json())
-        .then(data => CompanysetData(data))
-    }, [count])
+  
    
     const cards=Jobadat.map(item=>
     {
