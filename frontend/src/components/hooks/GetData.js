@@ -4,31 +4,36 @@ import JobCard from '../JobCard';
 function GetData() {
 
 
-   const [count,setCount]=useState(0)
+    const [count,setCount]=useState(0)
     const handleCountState=()=>
     {
         setCount(count+1);
     }
 
-    const [Jobadat,JobsetData]=useState([]);
-    const [Companyadat,CompanysetData]=useState([]);
-    const Joburl="http://localhost:5000/Job";
+    const [adat,setData]=useState([]);
+    const url="http://localhost:5000/Job";
 
-    useEffect(function (){
-        fetch(Joburl).then(response => response.json())
-        .then(data => JobsetData(data))
-    }, [count])
-
-  
-   
-    const cards=Jobadat.map(item=>
+    useEffect(function () {
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => setData(data))
+          .catch(error => console.error('Fetch error:', error));
+      }, [count]);
+      
+    const cards=adat.map(item=>
     {
         return(
         <>
-            
-         <JobCard id={item.id} {...item} updateState={handleCountState} companyadat={Companyadat}/>
+         <JobCard key={item.id} {...item} updateState={handleCountState}/>
          </>
-        )});
+        )
+    }
+    );
         
     return(
         <>

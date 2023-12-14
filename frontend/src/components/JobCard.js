@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React ,{useState, useEffect} from 'react';
 
 function JobCard(props) {
-  const [showModal, setShowModal] = useState(false);
 
-  const handleEditClick = () => {
-    console.log('Edit button clicked');
-    setShowModal(true);
-  };
+  
 
-  const handleDeleteClick = () => {
-    console.log('Delete button clicked');
-    setShowModal(true);
-  };
-
-  const jobandcompany = props.companyadat.map(item => (
+  return(
+  
     <div key={props.id} className='card cd'>
       <div className='row'>
         <div className='col-md-6'>
@@ -27,27 +19,27 @@ function JobCard(props) {
         <div className='col-md-6'>
           <div className='card-body cd-bd'>
             <h4>Company</h4>
-            <p>Name: {item.name}</p>
-            <p>CEO: {item.ceo}</p>
-            <p>Email: {item.email}</p>
-            <p>PhoneNumber: {item.phoneNumber}</p>
+            <p>Name: </p>
+            <p>CEO: </p>
+            <p>Email: </p>
+            <p>PhoneNumber: </p>
           </div>
         </div>
       </div>
 
       <div className='card-footer'>
-        <button className='btn btn-warning' data-toggle="modal" data-target="#exampleModal">
+        <button className='btn btn-warning' >
           Edit
         </button>
 
-        <button className='btn btn-danger' onClick={handleDeleteClick}>
+        <button className='btn btn-danger'>
           Delete
         </button>
       </div>
     </div>
-  ));
 
-  return jobandcompany;
+)
+ 
 }
 
 export default JobCard;
