@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.cd-bd{
+  background-color:aliceblue;
+  border: #282c34;
+  border-radius: 20px;
+}
+
+.cd{
+  padding:auto;
+  margin:10px;
+}
