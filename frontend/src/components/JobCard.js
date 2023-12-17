@@ -19,6 +19,16 @@ function JobCard(props) {
     
   };
 
+  const handleDeleteClick=()=>
+  {
+    const deleteUrl="http://localhost:5273/Job/"
+
+    fetch(deleteUrl+props.id,{
+      method: "DELETE",
+    })
+    props.setCount();
+  }
+
 
   const url = `http://localhost:5273/Company/${props.companyId}`;
 
@@ -69,7 +79,7 @@ function JobCard(props) {
 
       <div className='card-footer'>
         <button className='btn btn-warning' onClick={handleEditClick} >Edit</button>
-        <button className='btn btn-danger'>Delete</button>
+        <button className='btn btn-danger' onClick={handleDeleteClick}>Delete</button>
       </div>
     </div>
   );

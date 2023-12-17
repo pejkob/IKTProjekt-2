@@ -28,7 +28,7 @@ function GetData(props) {
       
         return(
         <>
-         <JobCard key={item.id} {...item} form={props.form} formSwitch={props.formSwitch} setFormData={props.setFormData}/>
+         <JobCard key={item.id} {...item} form={props.form} formSwitch={props.formSwitch} setCount={props.setCount} setFormData={props.setFormData}/>
          </>
         )
     }

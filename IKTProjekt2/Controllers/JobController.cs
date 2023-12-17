@@ -58,23 +58,29 @@ namespace IKTProjekt2.Controllers
             }
         }
 
-        [HttpDelete]
-        public ActionResult Delete(int id)
-        {
-            var context = new MainDbContext();
-            try
-            {
-                Jobs deleteJob = new(id);
-                context.Remove<Jobs>(deleteJob);
-                context.SaveChanges();
+        [HttpDelete("{id}")]
+public ActionResult Delete(int id)
+{
+    var context = new MainDbContext();
+    try
+    {
+        Jobs deleteJob = context.Jobs.Find(id);
 
-                return StatusCode(statusCode: 200,"A termék sikeresen törölve!");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+        if (deleteJob == null)
+        {
+            return NotFound($"Job with ID {id} not found");
         }
+
+        context.Remove(deleteJob);
+        context.SaveChanges();
+
+        return StatusCode(statusCode: 200, "Job successfully deleted");
+    }
+    catch (Exception ex)
+    {
+        return BadRequest(ex.Message);
+    }
+}
 
 
 

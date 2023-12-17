@@ -20,7 +20,7 @@ function App() {
     }
   return (
     <div >
-      <CardContainer count={count} setFormData={setFormData} formSwitch={formSwitch}/>
+      <CardContainer count={count} setCount={handleCountState} setFormData={setFormData} formSwitch={formSwitch}/>
       <EditForm setCount={handleCountState} formData={formData} setFormData={setFormData} form={form} formSwitch={formSwitch}/>
     </div>
   );
