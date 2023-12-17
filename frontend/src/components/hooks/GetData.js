@@ -11,7 +11,7 @@ function GetData() {
     }
 
     const [adat,setData]=useState([]);
-    const url="http://localhost:5000/Job";
+    const url="http://localhost:5273/Job";
 
     useEffect(function () {
         fetch(url)
@@ -23,13 +23,16 @@ function GetData() {
           })
           .then(data => setData(data))
           .catch(error => console.error('Fetch error:', error));
+          
       }, [count]);
       
     const cards=adat.map(item=>
     {
+
+      
         return(
         <>
-         <JobCard key={item.id} {...item} updateState={handleCountState}/>
+         <JobCard key={item.id} {...item} updateState={handleCountState} count={count}/>
          </>
         )
     }
