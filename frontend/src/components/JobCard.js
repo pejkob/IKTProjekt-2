@@ -3,7 +3,24 @@ import React, { useState, useEffect } from 'react';
 function JobCard(props) {
   const [companydata, setCompanyData] = useState([]);
 
-  const url = `http://localhost:5273/Company/${props.id}`;
+  const handleEditClick = () => {
+    props.formSwitch(true);
+    props.setFormData({
+      Id:props.id,
+      jobName: props.jobName,
+      skill: props.skill,
+      salary: props.salary,
+      companyId:props.companyId,
+      companyName: companydata.name,
+      ceo:companydata.ceo,
+      email:companydata.email,
+      phoneNumber:companydata.phoneNumber
+    });
+    
+  };
+
+
+  const url = `http://localhost:5273/Company/${props.companyId}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,8 +59,8 @@ function JobCard(props) {
         <div className='col-md-6'>
           <div className='card-body cd-bd'>
             <h4>Company</h4>
-            <p>Name: {companydata.name}</p>
-            <p>CEO: {companydata.ceo}</p>
+            <p>Name: {companydata.ceo}</p>
+            <p>CEO: {companydata.name}</p>
             <p>Email: {companydata.email}</p>
             <p>PhoneNumber: {companydata.phoneNumber}</p>
           </div>
@@ -51,7 +68,7 @@ function JobCard(props) {
       </div>
 
       <div className='card-footer'>
-        <button className='btn btn-warning'>Edit</button>
+        <button className='btn btn-warning' onClick={handleEditClick} >Edit</button>
         <button className='btn btn-danger'>Delete</button>
       </div>
     </div>

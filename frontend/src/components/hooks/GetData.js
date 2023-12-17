@@ -1,14 +1,10 @@
 import React, {useState,useEffect} from 'react'
 import JobCard from '../JobCard';
 
-function GetData() {
+function GetData(props) {
 
 
-    const [count,setCount]=useState(0)
-    const handleCountState=()=>
-    {
-        setCount(count+1);
-    }
+  
 
     const [adat,setData]=useState([]);
     const url="http://localhost:5273/Job";
@@ -24,7 +20,7 @@ function GetData() {
           .then(data => setData(data))
           .catch(error => console.error('Fetch error:', error));
           
-      }, [count]);
+      }, [props.count]);
       
     const cards=adat.map(item=>
     {
@@ -32,7 +28,7 @@ function GetData() {
       
         return(
         <>
-         <JobCard key={item.id} {...item} updateState={handleCountState} count={count}/>
+         <JobCard key={item.id} {...item} form={props.form} formSwitch={props.formSwitch} setFormData={props.setFormData}/>
          </>
         )
     }

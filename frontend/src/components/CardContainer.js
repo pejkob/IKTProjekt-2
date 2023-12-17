@@ -1,13 +1,13 @@
 import React from 'react'
 import GetData from './hooks/GetData'
 
-function CardContainer() {
+function CardContainer(props) {
 
 
   return (
     <div className='row'>
         <div className='col-md-9'>
-            <GetData/>
+            <GetData count={props.count}  form={props.form} formSwitch={props.formSwitch} setFormData={props.setFormData}/>
         </div>
     </div>
   )
