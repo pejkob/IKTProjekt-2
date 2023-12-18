@@ -5,11 +5,13 @@ import PutCard from './hooks/PutCard'
 function JobCard(props) {
   const [companydata, setCompanyData] = useState([]);
 
-  const url = `http://localhost:5273/Company/${props.companyId}`;
+ 
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
+        const url = `http://localhost:5273/Company/${props.companyId}`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -24,7 +26,7 @@ function JobCard(props) {
     };
 
     fetchData();
-  }, [props.id]);
+  }, [props.companyId]);
 
   if (companydata.length === 0) {
     return null;

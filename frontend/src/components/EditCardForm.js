@@ -1,10 +1,11 @@
 import React from 'react'
+import './style.css'
 
 function EditCardForm(props) {
 
     const handleEdit = () => {
-        const puturl = "http://localhost:5273/Job";
-        fetch(puturl, {
+        const puturl = "http://localhost:5273";
+        fetch(puturl+"/Job", {
           method: "PUT",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -15,15 +16,29 @@ function EditCardForm(props) {
             companyId:props.formData.companyId
           })
         });
+
+        
+        fetch(puturl+"/Company", {
+          method: "PUT",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            Id:props.formData.companyId,
+            Name: document.getElementById('CompanyName').value,
+            PhoneNumber: document.getElementById('PhoneNumber').value,
+            Email: document.getElementById('Email').value,
+            CEO:document.getElementById("Ceo").value
+          })
+        });
+
         props.setCount();
       };
          
 
   return (
-    <>
-        <form onSubmit={(event) => {event.preventDefault();}}>
+      <>
+      <h1>Edit data</h1>
+        <form id='jobform' onSubmit={(event) => {event.preventDefault();}}>
 
-         <h1>Edit data</h1>
               <fieldset>
               <div className="form">
               <label className="form-text" htmlFor="name">
@@ -50,11 +65,48 @@ function EditCardForm(props) {
                 
                 
               </div>
-              <button onClick={()=>props.formSwitch(false)} className="btn btn-danger">X</button>
-              <button  className="btn btn-success" onClick={handleEdit}>Done</button>
+             
               </fieldset>
-            </form>
+        </form>
 
+        <form id='companyform' onSubmit={(event) => {event.preventDefault();}}>
+
+              <fieldset>
+              <div className="form">
+              <label className="form-text" htmlFor="CompanyID">
+                Company Id:
+              </label>
+              <input required className="form-control" type="text" disabled id="CompanyID" value={props.formData.companyId}  />
+              <br/>
+              <label className="form-text" htmlFor="CompanyName">
+                Company name:
+              </label>
+              <input required className="form-control" type="text" id="CompanyName" />
+              <br/>
+                <label className="form-text" htmlFor="Ceo">
+                 Ceo:
+                </label>
+                <input required className="form-control" type="text" id="Ceo"/>  
+               <br/>
+                <label className="form-text" htmlFor="Email">
+                  Email:
+                </label>
+                <input required className="form-control" type="text" id="Email" />
+                <br/>
+                <label className="form-text" htmlFor="PhoneNumber">
+                  PhoneNumber:
+                </label>
+                <input required className="form-control" type="text" id="PhoneNumber" />
+             
+                <hr></hr>
+                <button onClick={()=>props.formSwitch(false)} className="btn btn-danger">X</button>
+                <button  className="btn btn-success" onClick={handleEdit}>Done</button>
+                
+              </div>
+              
+              </fieldset>
+        </form>
+       
     </>
   )
 }

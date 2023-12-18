@@ -18,7 +18,7 @@ function PostCard(props) {
    
 
 const handleNew = async () => {
-    const url = "http://localhost:5273/Job/";
+    const url = "http://localhost:5273/Job";
     try {
         const response = await fetch(url, {
             method: "POST",
