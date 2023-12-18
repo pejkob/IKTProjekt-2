@@ -3,9 +3,6 @@ import JobCard from '../JobCard';
 
 function GetData(props) {
 
-
-  
-
     const [adat,setData]=useState([]);
     const url="http://localhost:5273/Job";
 

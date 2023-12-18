@@ -47,3 +47,11 @@
   padding:auto;
   margin:10px;
 }
+body{
+  padding:40px;
+  background-color:burlywood;
+}
+
+.card{
+  margin-bottom: 20px;
+}

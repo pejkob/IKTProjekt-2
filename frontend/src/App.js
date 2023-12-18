@@ -1,7 +1,7 @@
 
 import './App.css';
 import CardContainer from './components/CardContainer';
-import EditForm from './components/EditForm';
+import EditForm from './components/Form1';
 import React,{useState} from 'react';
 
 function App() {
@@ -21,7 +21,9 @@ function App() {
   return (
     <div >
       <CardContainer count={count} setCount={handleCountState} setFormData={setFormData} formSwitch={formSwitch}/>
-      <EditForm setCount={handleCountState} formData={formData} setFormData={setFormData} form={form} formSwitch={formSwitch}/>
+      <div id='form1'>
+        <EditForm setCount={handleCountState} formData={formData} setFormData={setFormData} form={form} formSwitch={formSwitch}/>
+      </div>
     </div>
   );
 }

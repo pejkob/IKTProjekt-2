@@ -1,34 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import DeleteCard from './hooks/DeleteCard';
+import PutCard from './hooks/PutCard'
 
 function JobCard(props) {
   const [companydata, setCompanyData] = useState([]);
-
-  const handleEditClick = () => {
-    props.formSwitch(true);
-    props.setFormData({
-      Id:props.id,
-      jobName: props.jobName,
-      skill: props.skill,
-      salary: props.salary,
-      companyId:props.companyId,
-      companyName: companydata.name,
-      ceo:companydata.ceo,
-      email:companydata.email,
-      phoneNumber:companydata.phoneNumber
-    });
-    
-  };
-
-  const handleDeleteClick=()=>
-  {
-    const deleteUrl="http://localhost:5273/Job/"
-
-    fetch(deleteUrl+props.id,{
-      method: "DELETE",
-    })
-    props.setCount();
-  }
-
 
   const url = `http://localhost:5273/Company/${props.companyId}`;
 
@@ -78,8 +53,9 @@ function JobCard(props) {
       </div>
 
       <div className='card-footer'>
-        <button className='btn btn-warning' onClick={handleEditClick} >Edit</button>
-        <button className='btn btn-danger' onClick={handleDeleteClick}>Delete</button>
+       
+        <PutCard id={props.id} setCount={props.setCount}  jobName={props.jobName} skill={props.skill} salary={props.salary} companyId={props.companyId} companydata={companydata} formSwitch={props.formSwitch} setFormData={props.setFormData}/>
+        <DeleteCard setCount={props.setCount} id={props.id}/>
       </div>
     </div>
   );
