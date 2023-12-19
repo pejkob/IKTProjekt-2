@@ -11,13 +11,13 @@ function EditCardForm(props) {
         salary:document.getElementById('Salary').value,
         companyId:document.getElementById('CompanyId').value
       }]
-
-      const checkInput=()=>{
-        useEffect( function(){
-          const url="http://localhost:5273/"
-        }
-        )
+      useEffect( function(){
+        const url="http://localhost:5273/"
+        fetch(url+putObject.Id).then(resp=>{ return resp.json()}).then(checkInput())
       }
+      )
+
+     
      
         const puturl = "http://localhost:5273";
         fetch(puturl+"/Job", {
@@ -52,7 +52,9 @@ function EditCardForm(props) {
 
    
        
-
+        const checkInput=()=>{
+       
+        }
     
 
  
@@ -129,7 +131,7 @@ function EditCardForm(props) {
              
                 <hr></hr>
                 <button onClick={()=>props.formSwitch(false)} className="btn btn-danger">X</button>
-                <button  className="btn btn-success" onClick={handleEdit}>Done</button>
+                <button  className="btn btn-success" >Done</button>
                 
               </div>
               
