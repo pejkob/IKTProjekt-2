@@ -27,8 +27,8 @@ const handleNew = async () => {
             },
             body: JSON.stringify({
                 JobName: document.getElementById("NewJobName").value,
-                skill: document.getElementById("NewSkill").value,
                 salary: document.getElementById("NewSalary").value,
+                skill: document.getElementById("NewSkill").value,
                 companyId: document.getElementById("NewCompanyId").value
             })
         });

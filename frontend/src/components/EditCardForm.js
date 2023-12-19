@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.css'
 
 function EditCardForm(props) {
 
     const handleEdit = () => {
+      const putObject=[{
+        Id:props.formData.Id,
+        JobName:document.getElementById('Name').value,
+        skill:document.getElementById('Skills').value,
+        salary:document.getElementById('Salary').value,
+        companyId:document.getElementById('CompanyId').value
+      }]
+
+      const checkInput=()=>{
+        useEffect( function(){
+          const url="http://localhost:5273/"
+        }
+        )
+      }
+     
         const puturl = "http://localhost:5273";
         fetch(puturl+"/Job", {
           method: "PUT",
@@ -13,11 +28,13 @@ function EditCardForm(props) {
             JobName: document.getElementById('Name').value,
             skill: document.getElementById('Skills').value,
             salary: document.getElementById('Salary').value,
-            companyId:props.formData.companyId
+            companyId:document.getElementById('CompanyId').value
           })
         });
-
+        props.setCount();
         
+
+   
         fetch(puturl+"/Company", {
           method: "PUT",
           headers: { 'Content-Type': 'application/json' },
@@ -26,12 +43,19 @@ function EditCardForm(props) {
             Name: document.getElementById('CompanyName').value,
             PhoneNumber: document.getElementById('PhoneNumber').value,
             Email: document.getElementById('Email').value,
-            CEO:document.getElementById("Ceo").value
+            CEO:document.getElementById("Ceo").value,
           })
         });
 
-        props.setCount();
-      };
+        props.setCount(); 
+        };
+
+   
+       
+
+    
+
+ 
          
 
   return (
@@ -41,25 +65,30 @@ function EditCardForm(props) {
 
               <fieldset>
               <div className="form">
-              <label className="form-text" htmlFor="name">
+              <label className="form-text" htmlFor="JobId">
                 Job Id:
               </label>
-              <input required className="form-control" type="text" disabled id="JobId" value={props.formData.Id}  />
+              <input  className="form-control" type="text" disabled id="JobId" value={props.formData.Id}  />
               <br/>
-              <label className="form-text" htmlFor="name">
+              <label className="form-text" htmlFor="Name">
                 Job name:
               </label>
-              <input required className="form-control" type="text" id="Name" />
+              <input  className="form-control" type="text" id="Name" />
               <br/>
-                <label className="form-text" htmlFor="name">
+                <label className="form-text" htmlFor="Skills">
                   Job skills:
                 </label>
-                <input required className="form-control" type="text" id="Skills"/>  
+                <input  className="form-control" type="text" id="Skills"/>  
                <br/>
-                <label className="form-text" htmlFor="name">
+                <label className="form-text" htmlFor="Salary">
                   Salary:
                 </label>
-                <input required className="form-control" type="text" id="Salary" />
+                <input  className="form-control" type="text" id="Salary" />
+                <br/>
+                <label className="form-text" htmlFor="CompanyID">
+                  CompanyID:
+                </label>
+                <input  className="form-control" type="text" id="CompanyId" />
              
                 <hr></hr>
                 
@@ -76,27 +105,27 @@ function EditCardForm(props) {
               <label className="form-text" htmlFor="CompanyID">
                 Company Id:
               </label>
-              <input required className="form-control" type="text" disabled id="CompanyID" value={props.formData.companyId}  />
+              <input  className="form-control" type="text" disabled id="CompanyID" value={props.formData.companyId}  />
               <br/>
               <label className="form-text" htmlFor="CompanyName">
                 Company name:
               </label>
-              <input required className="form-control" type="text" id="CompanyName" />
+              <input  className="form-control" type="text" id="CompanyName" />
               <br/>
                 <label className="form-text" htmlFor="Ceo">
                  Ceo:
                 </label>
-                <input required className="form-control" type="text" id="Ceo"/>  
+                <input  className="form-control" type="text" id="Ceo"/>  
                <br/>
                 <label className="form-text" htmlFor="Email">
                   Email:
                 </label>
-                <input required className="form-control" type="text" id="Email" />
+                <input  className="form-control" type="text" id="Email" />
                 <br/>
                 <label className="form-text" htmlFor="PhoneNumber">
                   PhoneNumber:
                 </label>
-                <input required className="form-control" type="text" id="PhoneNumber" />
+                <input  className="form-control" type="text" id="PhoneNumber" />
              
                 <hr></hr>
                 <button onClick={()=>props.formSwitch(false)} className="btn btn-danger">X</button>
@@ -109,6 +138,6 @@ function EditCardForm(props) {
        
     </>
   )
-}
 
+} 
 export default EditCardForm

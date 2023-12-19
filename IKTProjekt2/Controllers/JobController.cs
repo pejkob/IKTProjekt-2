@@ -26,6 +26,22 @@ namespace IKTProjekt2.Controllers
             }
 
         }
+
+        [HttpGet("{id}")]
+        public ActionResult GetById(int id)
+        {
+            var context=new MainDbContext();
+            try
+            {
+                return StatusCode(statusCode: 200, context.Jobs.FirstOrDefault(f => f.Id == id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPost]
         public ActionResult Post(Jobs newJob)
         {
