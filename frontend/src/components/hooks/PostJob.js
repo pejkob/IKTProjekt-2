@@ -2,18 +2,25 @@ import React from 'react'
 
 function PostCard(props) {
 
+    const isInteger = (value) => {
+        return /^[0-9]+$/.test(value);
+      };
   const checkInput=()=>
   {
       const name=document.getElementById("NewJobName").value;
-      const description=document.getElementById("NewSkill").value;
-      const color=document.getElementById("NewSalary").value;
+      const skill=document.getElementById("NewSkill").value;
+      const salary=document.getElementById("NewSalary").value;
       const companyId=document.getElementById("NewCompanyId").value;
-      if(name!==""&&description!==""&&color!==""&&companyId!==""){
+      if(name!==""&&skill!==""&&companyId!==""){
+        if(isInteger(salary))
           handleNew();
+        else
+            console.log("A salary mezonek integernek kell lennie");
       }
       else{
           console.log("error");
       }
+
   }
    
 
@@ -26,24 +33,28 @@ const handleNew = async () => {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                JobName: document.getElementById("NewJobName").value,
+                jobName: document.getElementById("NewJobName").value,
                 salary: document.getElementById("NewSalary").value,
                 skill: document.getElementById("NewSkill").value,
                 companyId: document.getElementById("NewCompanyId").value
             })
         });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log("Response from server:", responseData);
+            props.setCount();
+        } else {
+            const errorData = await response.json(); 
+            console.error("HTTP error! Status:", response.status);
+            console.error("Error details:", errorData);
         }
 
-        const responseData = await response.json();
-        console.log("Response from server:", responseData);
-
-        props.setCount();
     } catch (error) {
         console.error("Fetch error:", error);
     }
+
+   
 };
 
     

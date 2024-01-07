@@ -1,13 +1,13 @@
 import React from 'react'
-import NewCardForm from './NewCardForm';
 import EditCardForm from './EditCardForm';
+import NewCardForm from './NewCardForm';
 
 function EditForm(props) {
 
       return (
         <div>
           {!props.form ? (
-              <NewCardForm formData={props.formData} setCount={props.setCount}/>
+              <NewCardForm/>
           ) : (
               <EditCardForm formSwitch={props.formSwitch} formData={props.formData} setCount={props.setCount}/>
           )}
