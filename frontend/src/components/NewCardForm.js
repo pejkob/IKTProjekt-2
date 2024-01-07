@@ -7,15 +7,15 @@ function NewCardForm(props) {
   return (
 
     <>
-    <form onSubmit={(event) => {event.preventDefault();}} >
+   
      <h1>New data</h1>
-        <fieldset>
-           <div className='left'> <NewJobForm/></div>
-           <div className='right'>  <NewCompanyForm/> </div>
+      
+           <div className='left'> <NewJobForm setCount={props.setCount}/></div>
+           <div className='right'>  <NewCompanyForm setCount={props.setCount}/> </div>
            
             <br></br>
-        </fieldset>
-    </form>
+      
+  
 
     </>
   )

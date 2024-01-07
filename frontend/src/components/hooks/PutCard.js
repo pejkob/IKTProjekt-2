@@ -19,7 +19,7 @@ function PutCard(props) {
     
   return (
     <>
-         <button to="asd" className='btn btn-warning' onClick={handleEditClick} >Edit</button>
+         <button to="asd" className='btn btn-warning' onClick={handleEditClick} style={{width:"100%"}} >Edit</button>
     </>
   )
 }

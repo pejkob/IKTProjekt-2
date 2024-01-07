@@ -14,6 +14,6 @@ namespace IKTProjekt2.Models
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
         public string? CEO { get; set; }
-
+        public ICollection<Jobs> Jobs { get; set; } = new List<Jobs>();
     }
 }

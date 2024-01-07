@@ -4,7 +4,9 @@
 .form{
   float:left;
   padding: 10px;
-  margin: 15px;
+  width: 90%;
+  margin: 10px;
+  background-color: #3AB795;
 }
 
 #companyform{
@@ -20,3 +22,14 @@
   float: right; 
   width: 50%; 
 } 
+.cd{
+  border: #86BAA1 4px solid;
+  background-color: #FFCF56;
+
+}
+
+
+
+body{
+  background-color: #EDEAD0;
+}

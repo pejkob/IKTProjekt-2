@@ -27,10 +27,11 @@ function NewCompanyForm(props) {
                 ceo:
                 </label>
                 <input required className="form-control" type="text" id="Newceo" />
+                <PostCompany setCount={props.setCount}/>
                 </div>
            
-            <br></br>
-            <PostCompany setCount={props.setCount}/>
+         
+           
         </fieldset>
     </form>
 

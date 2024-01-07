@@ -59,32 +59,32 @@ namespace IKTProjekt2.Controllers
         }
         
        [HttpPut("{id}")]
-public ActionResult Put(int id, Jobs editedJob)
-{
-    var context = new MainDbContext();
-    try
-    {
-        Jobs existingJob = context.Jobs.Find(id);
-
-        if (existingJob == null)
+        public ActionResult Put(int id, Jobs editedJob)
         {
-            return NotFound($"Job with ID {id} not found");
+        var context = new MainDbContext();
+        try
+        {
+            Jobs existingJob = context.Jobs.Find(id);
+
+            if (existingJob == null)
+            {
+                return NotFound($"Job with ID {id} not found");
+            }
+
+            existingJob.JobName = editedJob.JobName;
+            existingJob.skill = editedJob.skill;
+            existingJob.salary = editedJob.salary;
+            existingJob.companyId = editedJob.companyId;
+
+            context.Update(existingJob);
+            context.SaveChanges();
+
+            return StatusCode(statusCode: 204, "Sikeres adatmódosítás");
         }
-
-        existingJob.JobName = editedJob.JobName;
-        existingJob.skill = editedJob.skill;
-        existingJob.salary = editedJob.salary;
-        existingJob.companyId = editedJob.companyId;
-
-        context.Update(existingJob);
-        context.SaveChanges();
-
-        return StatusCode(statusCode: 204, "Sikeres adatmódosítás");
-    }
-    catch (Exception ex)
-    {
-        return BadRequest(ex.Message);
-    }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
 }
 
         [HttpDelete("{id}")]

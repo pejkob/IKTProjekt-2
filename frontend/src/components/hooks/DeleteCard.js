@@ -24,7 +24,7 @@ function DeleteCar(props) {
       };
   return (
     <div>
-       <button onClick={handleDelete} className="btn btn-danger">
+       <button onClick={handleDelete} className="btn btn-danger" style={{width:"100%"}}>
             Delete
           </button>
     </div>

@@ -44,16 +44,16 @@ const handleNew = async () => {
             const responseData = await response.json();
             console.log("Response from server:", responseData);
             props.setCount();
+           
         } else {
             const errorData = await response.json(); 
             console.error("HTTP error! Status:", response.status);
             console.error("Error details:", errorData);
         }
-
+       
     } catch (error) {
         console.error("Fetch error:", error);
     }
-
    
 };
 

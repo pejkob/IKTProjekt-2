@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style.css';
 import PutJob from './hooks/PutJob';
+import PutCompany from './hooks/PutCompany';
 
 function EditCardForm(props) {
 
@@ -73,8 +74,8 @@ function EditCardForm(props) {
                 <input  className="form-control" type="text" id="PhoneNumber" />
              
                 <hr></hr>
-                <button onClick={()=>props.formSwitch(false)} className="btn btn-danger">X</button>
-                <button  className="btn btn-success" >Done</button>
+                
+                <PutCompany formSwitch={props.formSwitch} formData={props.formData} setCount={props.setCount}/>
                 
               </div>
               

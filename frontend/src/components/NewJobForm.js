@@ -27,10 +27,11 @@ function NewCardForm(props) {
                 Company Id:
                 </label>
                 <input required className="form-control" type="text" id="NewCompanyId" />
+                <PostJob setCount={props.setCount}/>
             </div>
            
-            <br></br>
-            <PostJob setCount={props.setCount}/>
+        
+           
         </fieldset>
     </form>
 
