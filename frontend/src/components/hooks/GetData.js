@@ -49,9 +49,9 @@ function GetData(props) {
 
     const companyCards=companyAdat.map(item=>{
       return(
-        <>
+        <div className='companycard'>
         <GetCompanies companyAdat={companyAdat}  key={item.id} {...item} form={props.form} formSwitch={props.formSwitch} setCount={props.setCount} setFormData={props.setFormData}/>
-        </>
+        </div>
       )
     })
 
@@ -63,12 +63,12 @@ function GetData(props) {
 
           <div className='row'>
         
-            <div className='col-md-8'>
+            <div className='col-md-6'>
             {cards}
 
             </div>
 
-            <div className='col-md-4'>
+            <div className='col-md-6'>
               
             {companyCards}
             </div>

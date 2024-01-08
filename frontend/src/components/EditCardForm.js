@@ -9,7 +9,7 @@ function EditCardForm(props) {
   return (
     <>
       <h1>Edit data</h1>
-      <form className='form' id='jobform' onSubmit={(event) => { event.preventDefault(); }}>
+      <form className='form left' id='jobform' onSubmit={(event) => { event.preventDefault(); }}>
       <fieldset>
               <div className="form">
               <label className="form-text" htmlFor="JobId">
@@ -45,7 +45,7 @@ function EditCardForm(props) {
               </fieldset>
       </form>
 
-      <form className='form' id='companyform' onSubmit={(event) => { event.preventDefault(); }}>
+      <form className='form right' id='companyform' onSubmit={(event) => { event.preventDefault(); }}>
       <fieldset>
               <div className="form">
               <label className="form-text" htmlFor="CompanyID">

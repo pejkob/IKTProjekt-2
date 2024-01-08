@@ -79,7 +79,7 @@ namespace IKTProjekt2.Controllers
             context.Update(existingJob);
             context.SaveChanges();
 
-            return StatusCode(statusCode: 204, "Sikeres adatmódosítás");
+            return StatusCode(statusCode: 204, context.Jobs);
         }
         catch (Exception ex)
         {

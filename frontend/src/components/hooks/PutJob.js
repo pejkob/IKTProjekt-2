@@ -3,10 +3,10 @@ import React from 'react';
 function PutJob(props) {
   const handleEdit = async () => {
     const putObject = {
-      Id: props.formData.Id,
+     
       jobName: document.getElementById('Name').value,
-      skill: document.getElementById('Skills').value,
       salary: document.getElementById('Salary').value,
+      skill: document.getElementById('Skills').value,
       companyId: document.getElementById('CompanyId').value
     };
 

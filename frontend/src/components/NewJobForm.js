@@ -2,7 +2,7 @@ import React from 'react'
 import PostJob from './hooks/PostJob';
 import './style.css'
 
-function NewCardForm(props) {
+function NewJobForm(props) {
   return (
 
     <>
@@ -39,4 +39,4 @@ function NewCardForm(props) {
   )
 }
 
-export default NewCardForm
+export default NewJobForm

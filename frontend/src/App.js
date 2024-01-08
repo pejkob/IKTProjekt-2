@@ -10,7 +10,7 @@ function App() {
     jobName: '',
     skill: '',
     salary: '',
-    companyId: '', // Add companyId to match the received data
+    companyId: '', 
   });
 
   const [count,setCount]=useState(0)
