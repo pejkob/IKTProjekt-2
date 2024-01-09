@@ -48,21 +48,19 @@ const handleNew = async () => {
         }
         );
         if (response.ok) {
-            const responseData = await response.json();
-            console.log("Response from server:", responseData);
-            toast.success("Új munka létrehozva!");
-            props.setCount();
-           
+            toast.success(`Új munka létrehozva! `);
+            
         } else {
             const errorData = await response.json(); 
-            console.error("HTTP error! Status:", response.status);
-            console.error("Error details:", errorData);
+            
+            toast.error(`Hibás adattárolás! ${errorData}`);
+            
         }
+        props.setCount();
        
     } catch (error) {
       toast.error(`Hiba az adatok lekérdezésekor ${error}`)
 
-        console.error("Fetch error:", error);
     }
    
 };

@@ -19,7 +19,9 @@ function PostCompany(props) {
   const handleNew = async () => {
     const url = "http://localhost:5273/Company";
     try {
-      const response = await toast.promise(fetch(url, {
+      const response = await toast.promise(
+        
+        fetch(url, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -40,8 +42,7 @@ function PostCompany(props) {
       if (response.ok) {
         const responseData = await response.json();
         console.log("Response from server:", responseData);
-        toast.success("Új cég létrehozva!");
-        props.setCount();
+    
        
     } else {
         const errorData = await response.json(); 
@@ -52,6 +53,9 @@ function PostCompany(props) {
       toast.error(`Hiba az adatok lekérdezésekor ${error}`)
       console.error("Fetch error:", error);
     }
+    toast.success("Új cég létrehozva!");
+    props.setCount();
+
   };
 
   return (

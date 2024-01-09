@@ -31,6 +31,7 @@ function DeleteCar(props) {
        <button onClick={handleDelete} className="btn btn-danger" style={{width:"100%"}}>
             Delete
           </button>
+          <ToastContainer/>
     </div>
   )
 }
