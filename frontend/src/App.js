@@ -4,6 +4,7 @@ import CardContainer from './components/CardContainer';
 import EditForm from './components/Form1';
 import React,{useState} from 'react';
 
+
 function App() {
   const [form,formSwitch]=useState(false);
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ function App() {
     salary: '',
     companyId: '', 
   });
+  
 
   const [count,setCount]=useState(0)
     const handleCountState=()=>
@@ -22,8 +24,9 @@ function App() {
     <>
       <CardContainer count={count} setCount={handleCountState} setFormData={setFormData} formSwitch={formSwitch}/>
       <div id='form1'>
-        <EditForm setCount={handleCountState} formData={formData} setFormData={setFormData} form={form} formSwitch={formSwitch}/>
+        <EditForm  setCount={handleCountState} formData={formData} setFormData={setFormData} form={form} formSwitch={formSwitch}/>
       </div>
+     
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import JobCard from '../JobCard';
 import GetCompanies from './GetCompanies'
+import { toast } from 'react-toastify';
 
 
 function GetData(props) {
@@ -30,7 +31,7 @@ function GetData(props) {
             return response.json();
           })
           .then(data => setCompanyData(data))
-          .catch(error => console.error('Fetch error:', error));
+          .catch(error => toast.error(`Hiba az adatok lekérdezésekor! ${error}`));
           
       }, [props.count]);
       

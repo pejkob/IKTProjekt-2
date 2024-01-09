@@ -1,4 +1,7 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function PostCompany(props) {
   const checkInput = () => {
@@ -16,7 +19,7 @@ function PostCompany(props) {
   const handleNew = async () => {
     const url = "http://localhost:5273/Company";
     try {
-      const response = await fetch(url, {
+      const response = await toast.promise(fetch(url, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -27,11 +30,17 @@ function PostCompany(props) {
           email: document.getElementById("Newemail").value,
           ceo: document.getElementById("Newceo").value,
         }),
-      });
-
+      }),
+      {
+        pending: 'Promise is pending',
+        success: 'Promise resolved 👌',
+        error: 'Promise rejected 🤯'
+      }
+      );
       if (response.ok) {
         const responseData = await response.json();
         console.log("Response from server:", responseData);
+        toast.success("Új cég létrehozva!");
         props.setCount();
        
     } else {
@@ -40,6 +49,7 @@ function PostCompany(props) {
         console.error("Error details:", errorData);
     }
     } catch (error) {
+      toast.error(`Hiba az adatok lekérdezésekor ${error}`)
       console.error("Fetch error:", error);
     }
   };
@@ -49,6 +59,8 @@ function PostCompany(props) {
       <button onClick={checkInput} className="btn btn-success">
         Send
       </button>
+    <ToastContainer/>
+
     </>
   );
 }

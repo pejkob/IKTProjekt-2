@@ -1,4 +1,6 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PostCard(props) {
 
@@ -26,8 +28,9 @@ function PostCard(props) {
 
 const handleNew = async () => {
     const url = "http://localhost:5273/Job";
+   
     try {
-        const response = await fetch(url, {
+        const response = await toast.promise( fetch(url, {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -38,11 +41,16 @@ const handleNew = async () => {
                 skill: document.getElementById("NewSkill").value,
                 companyId: document.getElementById("NewCompanyId").value
             })
-        });
-        
+        }),{
+            pending: 'Promise is pending',
+            success: 'Promise resolved 👌',
+            error: 'Promise rejected 🤯'
+        }
+        );
         if (response.ok) {
             const responseData = await response.json();
             console.log("Response from server:", responseData);
+            toast.success("Új munka létrehozva!");
             props.setCount();
            
         } else {
@@ -52,6 +60,8 @@ const handleNew = async () => {
         }
        
     } catch (error) {
+      toast.error(`Hiba az adatok lekérdezésekor ${error}`)
+
         console.error("Fetch error:", error);
     }
    
@@ -61,6 +71,7 @@ const handleNew = async () => {
   return (
     <>
         <button onClick={checkInput} className="btn btn-success">Send</button>
+        <ToastContainer/>
     </>
   )
 }

@@ -1,4 +1,6 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function DeleteCar(props) {
 
@@ -9,8 +11,10 @@ function DeleteCar(props) {
         })
           .then((resp) => {
             if (!resp.ok) {
+              toast.error("Hiba történt a munka törlése közben!")
               throw new Error('Network response was not ok');
             }
+            toast.success("Munka sikeresen törölve!");
             return resp.json();
           })
           .then((res) => {

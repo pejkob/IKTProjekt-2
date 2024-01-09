@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 function PutCompany(props) {
   const handleEdit = async () => {
@@ -27,6 +28,7 @@ function PutCompany(props) {
     } catch (error) {
         console.error('Fetch error:', error);
     }
+    toast.warning("Cég sikeresen módosítva!")
     props.setCount();
 
     

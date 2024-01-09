@@ -1,4 +1,6 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function DeleteCompany(props) {
     const handleDelete = async () => {
@@ -16,8 +18,7 @@ function DeleteCompany(props) {
             throw new Error('Network response was not ok');
           }
       
-          console.log('Company deleted successfully');
-      
+          toast.success("Cég sikeresen törölve!");
         } catch (error) {
           console.error('Fetch error:', error);
         }
@@ -30,6 +31,7 @@ function DeleteCompany(props) {
       <button onClick={handleDelete} className="btn btn-danger" style={{width:"100%"}}>
         Delete
       </button>
+      <ToastContainer/>
     </div>
   );
 }
