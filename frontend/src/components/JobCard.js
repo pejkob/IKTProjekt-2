@@ -39,7 +39,8 @@ function JobCard(props) {
       <div className='row'>
         <div className='col-md-4'>
           <div className='card-body'>
-            <h2>{props.jobName}</h2>
+            <h4>Job</h4>
+            <h6>{props.jobName}</h6>
             <p>Skill needed: {props.skill}</p>
             <p>Salary: {props.salary}$</p>
         </div>
