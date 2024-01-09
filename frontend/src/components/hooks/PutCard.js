@@ -11,7 +11,15 @@ function PutCard(props) {
         props.formSwitch(true);
         props.setFormData({
           Id:props.id,
-          companyId:props.companyId
+          name:props.jobName,
+          skill:props.skill,
+          salary:props.salary,
+          companyId:props.companyId,
+          companyName:props.companydata.name,
+          ceo:props.companydata.ceo,
+          email:props.companydata.email,
+          phoneNumber:props.companydata.phoneNumber
+
         });
         props.setCount();
       };

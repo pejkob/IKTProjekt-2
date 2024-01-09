@@ -8,7 +8,7 @@ function NewCardForm(props) {
 
     <>
    
-     <h1>New data</h1>
+     <h1 className='header'>New data</h1>
       
            <div className='left'> <NewJobForm setCount={props.setCount}/></div>
            <div className='right'>  <NewCompanyForm setCount={props.setCount}/> </div>

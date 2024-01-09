@@ -4,9 +4,9 @@ import DeleteCompany from './DeleteCompany'
 function GetCompanies(props) {
   return (
     <>
-    <div className='card'>
+    <div className='card bg-success'>
       
-          <div className='card-body cd'>
+          <div className='card-body'>
             
             <h3> {props.name}</h3>
             <p>Id: {props.id}</p>

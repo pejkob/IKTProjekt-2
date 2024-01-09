@@ -10,21 +10,21 @@ function NewCompanyForm(props) {
         <fieldset>
         <div className="form">
                 <label className="form-text" htmlFor="NewCompanyName">
-                  Company name:
+                Company name:
                 </label>
                 <input required className="form-control" type="text" id="NewCompanyName" />
                 <br />
-                <label className="form-text" htmlFor="NewphoneNumber">
-                phoneNumber:
+                <label className="form-text" htmlFor="NewphoneNumber" >
+                Phone Number:
                 </label>
-                <input  className="form-control" type="text" id="NewphoneNumber" />
+                <input  className="form-control" type="text" id="NewphoneNumber" placeholder='111-222-3333' />
                 <br />
                 <label className="form-text" htmlFor="Newemail">
-                email:
+                Email:
                 </label>
-                <input  className="form-control" type="text" id="Newemail" />
+                <input  className="form-control" type="text" id="Newemail" placeholder='test@email.com' />
                 <label className="form-text" htmlFor="Newceo">
-                ceo:
+                CEO:
                 </label>
                 <input required className="form-control" type="text" id="Newceo" />
                 <PostCompany setCount={props.setCount}/>

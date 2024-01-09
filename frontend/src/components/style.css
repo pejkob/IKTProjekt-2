@@ -3,38 +3,44 @@
 }
 .form{
   float:left;
-  padding: 10px;
-  width: 90%;
-  margin: 10px;
-  background-color: #3AB795;
+  padding: 5px;
+  width: 100%;
+  background-color: #17C3B2;
+  border: #227C9D 4px solid;
+  
 }
 
 #companyform{
   clear: right;
-  margin-left: 30px;
 }
 .left { 
   float: left; 
-  width: 40%; 
+  width:45%; 
+  
 } 
  
 .right{ 
   float: right; 
-  width: 40%; 
+  width: 45%; 
 } 
 .cd{
-  border: #86BAA1 4px solid;
-  background-color: #FFCF56;
-
+  border: #227C9D 4px solid;
+  background-color: #17C3B2;
+  padding: 10px;
 }
 
-
-
-body{
-  background-color: #EDEAD0;
-}
 .companycard{
-  width: 50%;
-  height: 400px;
+  width: 48%;
+  height: 325px;
+  margin-left:5px;
   float: left;
+}
+
+.card-body{
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header{
+  text-align: center;
 }

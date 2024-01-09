@@ -5,13 +5,16 @@ import NewCardForm from './NewCardForm';
 function EditForm(props) {
 
       return (
-        <div>
+        <>
+            
           {!props.form ? (
               <NewCardForm setCount={props.setCount}/>
           ) : (
+
               <EditCardForm formSwitch={props.formSwitch} formData={props.formData} setCount={props.setCount}/>
+
           )}
-        </div>
+        </>
       );
 }
 

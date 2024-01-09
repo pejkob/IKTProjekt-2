@@ -39,17 +39,17 @@ function GetData(props) {
 
       
         return(
-        <>
+        <div className='card-deck'>
          <JobCard key={item.id} {...item} form={props.form} formSwitch={props.formSwitch} setCount={props.setCount} setFormData={props.setFormData}/>
+         </div>
          
-         </>
         )
     }
     );
 
     const companyCards=companyAdat.map(item=>{
       return(
-        <div className='companycard'>
+        <div className='companycard card-deck'>
         <GetCompanies companyAdat={companyAdat}  key={item.id} {...item} form={props.form} formSwitch={props.formSwitch} setCount={props.setCount} setFormData={props.setFormData}/>
         </div>
       )
@@ -58,10 +58,9 @@ function GetData(props) {
 
         
     return(
-        <> 
         <div className='container'> 
 
-          <div className='row'>
+          <div className='row cd'>
         
             <div className='col-md-6'>
             {cards}
@@ -76,7 +75,6 @@ function GetData(props) {
           </div>
         </div>
 
-        </>
     )
 }
 

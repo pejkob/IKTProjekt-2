@@ -25,8 +25,6 @@ function PutJob(props) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const responseData = await response.json();
-      console.log('Response from server:', responseData);
 
     } catch (error) {
         console.error('Fetch error:', error);

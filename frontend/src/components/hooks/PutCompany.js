@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PutJob(props) {
+function PutCompany(props) {
   const handleEdit = async () => {
     const putObject = {
       Name: document.getElementById('CompanyName').value,
@@ -24,7 +24,6 @@ function PutJob(props) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      console.log('Company updated successfully');
     } catch (error) {
         console.error('Fetch error:', error);
     }
@@ -45,4 +44,4 @@ function PutJob(props) {
   );
 }
 
-export default PutJob;
+export default PutCompany;

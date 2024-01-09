@@ -19,12 +19,12 @@ function App() {
         setCount(count+1);
     }
   return (
-    <div >
+    <>
       <CardContainer count={count} setCount={handleCountState} setFormData={setFormData} formSwitch={formSwitch}/>
       <div id='form1'>
         <EditForm setCount={handleCountState} formData={formData} setFormData={setFormData} form={form} formSwitch={formSwitch}/>
       </div>
-    </div>
+    </>
   );
 }
 
